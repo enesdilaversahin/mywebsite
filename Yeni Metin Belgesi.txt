@@ -1,0 +1,66 @@
+import random
+import os
+
+def s_box(input_val):
+    """Simple S-box implementation."""
+    return ((input_val << 1) & 0xFF) | ((input_val >> 7) & 0x01)
+
+def permute(input_val):
+    """Simple permutation function."""
+    return ((input_val & 0x0F) << 4) | ((input_val & 0xF0) >> 4)
+
+def f_function(key, n_val, l_val):
+    """Mixing function F using S-box and permutation."""
+    temp = n_val ^ key
+    temp = s_box(temp)
+    temp = permute(temp)
+    return temp ^ l_val
+
+def feistel_encrypt(plaintext, key, rounds=8):
+    """Custom Feistel encryption function."""
+    # Split plaintext into 4 parts (32 bits each for 128-bit plaintext)
+    l, n, r, m = plaintext[0:4], plaintext[4:8], plaintext[8:12], plaintext[12:16]
+
+    for i in range(rounds):
+        round_key = key[i % len(key)]  # Rotate keys
+
+        if i % 2 == 0:  # Odd round
+            l, n, r, m = n, r, m, bytes([m[j] ^ f_function(round_key[j % len(round_key)], n[j], l[j]) for j in range(len(m))])
+        else:  # Even round
+            l, n, r, m = n, l, bytes([r[j] ^ f_function(round_key[j % len(round_key)], n[j], l[j]) for j in range(len(r))]), r
+
+    return l + n + r + m
+
+def feistel_decrypt(ciphertext, key, rounds=8):
+    """Custom Feistel decryption function."""
+    # Split ciphertext into 4 parts
+    l, n, r, m = ciphertext[0:4], ciphertext[4:8], ciphertext[8:12], ciphertext[12:16]
+
+    for i in reversed(range(rounds)):
+        round_key = key[i % len(key)]
+
+        if i % 2 == 0:  # Odd round (reverse encryption logic)
+            n, l, m, r = l, n, r, bytes([m[j] ^ f_function(round_key[j % len(round_key)], n[j], l[j]) for j in range(len(m))])
+        else:  # Even round (reverse encryption logic)
+            n, l, r, m = l, n, m, bytes([r[j] ^ f_function(round_key[j % len(round_key)], n[j], l[j]) for j in range(len(r))])
+
+    return l + n + r + m
+
+# Example usage
+if __name__ == "__main__":
+    # Generate random 128-bit plaintext and 256-bit key
+    plaintext = os.urandom(16)  # 128-bit (16 bytes)
+    key = [os.urandom(16) for _ in range(4)]  # 4 x 128-bit subkeys (256-bit)
+
+    print("Plaintext:", plaintext.hex())
+
+    # Encrypt the plaintext
+    ciphertext = feistel_encrypt(plaintext, key, rounds=8)
+    print("Ciphertext:", ciphertext.hex())
+
+    # Decrypt the ciphertext
+    decrypted = feistel_decrypt(ciphertext, key, rounds=8)
+    print("Decrypted:", decrypted.hex())
+
+    # Verify correctness
+    assert plaintext == decrypted, "Decryption failed!"
