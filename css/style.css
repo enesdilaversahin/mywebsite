@@ -826,9 +826,9 @@ h6 { font-size: 16px; }
 }
 .progress_inner span.number{
 	float: right;
-	position: absolute;
+	position: static;
 	right: 100%;
-	bottom: 0px;
+	bottom: px;
 	transition: all 2s cubic-bezier(0.165, 0.840, 0.440, 1.000);  /* IE 10+ */
 }
 .progress_inner .background{
@@ -1275,12 +1275,12 @@ h6 { font-size: 16px; }
 .arlo_tm_news .news_list ul li .date{
 	position: absolute;
 	z-index: 2;
-	top: 20px;
-	left: 20px;
+	top: 10px;
+	left: 10px;
 	color: #000;
 	background-color: #fff;
 	display: inline-block;
-	padding: 5px 30px;
+	padding: 0px 10px;
 }
 .arlo_tm_news .news_list ul li .image{
 	width: 50%;
@@ -1288,7 +1288,7 @@ h6 { font-size: 16px; }
 	overflow: hidden;
 }
 .arlo_tm_news .news_list ul li .image img{
-	min-width: 100%;
+	min-width: 90%;
 	opacity: 0;
 	position: relative;
 }
@@ -1312,7 +1312,7 @@ h6 { font-size: 16px; }
 	transform: scale(1.1) translateZ(0);
 }
 .arlo_tm_news .news_list ul li .desc{
-	width: 50%;
+	width: 60%;
 	padding-left: 50px;
 }
 .arlo_tm_full_link{

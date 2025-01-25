@@ -95,7 +95,7 @@
 	top: 0px;
 	left: 0px;
 	right: 0px;
-	height: 50px;
+	height: 20px;
 	background-color: #fff;
 	z-index: 5;
 	border-top-left-radius: 5px;
@@ -107,7 +107,7 @@
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	height: 50px;
+	height: 20px;
 	background-color: #fff;
 	z-index: 5;
 	border-bottom-left-radius: 5px;
@@ -417,17 +417,17 @@
 
 @media (max-width: 1600px) {
 	.container{max-width: 1050px;}
-	.arlo_tm_modalbox .box_inner{width: 800px;}
+	.arlo_tm_modalbox .box_inner{width: 900px;}
 	.arlo_tm_modalbox .description_wrap{padding: 40px 40px 10px 40px;}
 	.arlo_tm_modalbox .description_wrap:before{height: 40px;}
 	.arlo_tm_modalbox .description_wrap:after{height: 40px;}
 	.arlo_tm_modalbox .close{margin-left: 20px;}
 }
-@media (max-width: 1040px){
+@media (max-width: 1240px){
 	.arlo_tm_modalbox .box_inner{width: 600px;top: 50px;bottom: 50px;}
-	.arlo_tm_modalbox .description_wrap{padding: 30px 30px 10px 30px;}
-	.arlo_tm_modalbox .description_wrap:before{height: 30px;}
-	.arlo_tm_modalbox .description_wrap:after{height: 30px;}
+	.arlo_tm_modalbox .description_wrap{padding: 30px 20px 10px 30px;}
+	.arlo_tm_modalbox .description_wrap:before{height: 20px;}
+	.arlo_tm_modalbox .description_wrap:after{height: 20px;}
 	.arlo_tm_modalbox .close a{width: 30px;height: 30px;}
 	.arlo_tm_modalbox .close{margin-left: 15px;}
 	.arlo_tm_modalbox .main_details{flex-direction: column;}

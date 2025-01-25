@@ -238,7 +238,7 @@ function arlo_tm_imgtosvg(){
 	
 	"use strict";
 	
-	jQuery('img.svg').each(function(){
+	jQuery('img.html').each(function(){
 		
 		var jQueryimg 		= jQuery(this);
 		var imgClass		= jQueryimg.attr('class');
