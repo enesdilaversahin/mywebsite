@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function(){
 
 	"use strict";
@@ -21,6 +20,7 @@ jQuery(document).ready(function(){
 	arlo_tm_background_effects();
 	arlo_tm_borders();
 	arlo_tm_canvas_effect();
+	arlo_tm_topbar_scroll();
 	
 	jQuery(window).load('body', function(){
 		arlo_tm_my_load();
@@ -591,4 +591,33 @@ function arlo_tm_canvas_effect(){
 		// start animation
 		render();
 	}
+}
+
+function arlo_tm_topbar_scroll() {
+	"use strict";
+	
+	var topbar = jQuery('.arlo_tm_topbar');
+	var lastScrollTop = 0;
+	var scrollThreshold = 100; // Kaç pixel scroll sonra kaybolsun
+	var compactThreshold = 50; // Kaç pixel scroll sonra ince olsun
+	
+	jQuery(window).on('scroll', function() {
+		var scrollTop = jQuery(window).scrollTop();
+		
+		// Scroll ederken ince yap
+		if (scrollTop > compactThreshold) {
+			topbar.addClass('scrolled_compact');
+		} else {
+			topbar.removeClass('scrolled_compact');
+		}
+		
+		// Daha fazla scroll ederken tamamen kaybol
+		if (scrollTop > scrollThreshold) {
+			topbar.addClass('scrolled');
+		} else {
+			topbar.removeClass('scrolled');
+		}
+		
+		lastScrollTop = scrollTop;
+	});
 }
