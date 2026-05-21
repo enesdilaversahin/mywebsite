@@ -10,6 +10,7 @@
 07) ARLO PORTFOLIO
 08) ARLO NEWS
 09) ARLO CONTACT
+
 10) ARLO BACKGROUND EFFECTS
 11) ARLO MEDIA QUERIES (FOR SMALL DEVICES)
 
@@ -1840,7 +1841,109 @@ body.intro{
 }
 
 /*---------------------------------------------------*/
-/*	11) ARLO MEDIA QUERIES (FOR SMALL DEVICES)
+/*	11) ARLO MEDIA QUERIES (FOR SMALL DEVICES)        */
+/*---------------------------------------------------*/
+
+.arlo_tm_about .experience{
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	position: relative;
+}
+.arlo_tm_about .experience:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 1px;
+	height: 100%;
+	background-color: #ddd;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.arlo_tm_about .experience .wrapper{
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+	display: flex;
+}
+.arlo_tm_about .experience .left{
+	width: 50%;
+	float: left;
+	padding-right: 50px;
+	margin-bottom: 25px;
+}
+.arlo_tm_about .experience .right{
+	width: 50%;
+	float: left;
+	padding-left: 50px;
+	margin-bottom: 20px;
+}
+.arlo_tm_about .experience .experience_title{
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+	margin-bottom: 20px;
+}
+.arlo_tm_about .experience .experience_title h3{
+	font-size: 14px;
+	font-weight: 600;
+	color: #000;
+	margin-bottom: 10px;
+}
+.arlo_tm_experience_list{
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+}
+.arlo_tm_experience_list li{
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+}
+.arlo_tm_experience_list li .list_inner{
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eee;
+}
+.arlo_tm_experience_list li:last-child{
+	margin-bottom: 0px;
+}
+.arlo_tm_experience_list li:last-child .list_inner{
+	border-bottom: none;
+	padding-bottom: 0px;
+}
+.arlo_tm_experience_list .subject h3{
+	font-size: 15px;
+	font-weight: 600;
+	color: #000;
+	margin-bottom: 3px;
+}
+.arlo_tm_experience_list .subject span{
+	font-size: 13px;
+	color: #868a9b;
+}
+.arlo_tm_experience_list .date span{
+	font-size: 13px;
+	font-weight: 500;
+	color: #000;
+}
 /*---------------------------------------------------*/
 
 @media (max-width: 1600px) {
@@ -2116,106 +2219,5 @@ body.intro{
 	.arlo_tm_topbar.scrolled_compact .topbar_inner {
 		height: 60px !important;
 	}
-}
-
-.arlo_tm_about .experience{
-	width: 100%;
-	height: auto;
-	clear: both;
-	float: left;
-	padding-left: 25px;
-	padding-right: 25px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	position: relative;
-}
-.arlo_tm_about .experience:before{
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 1px;
-	height: 100%;
-	background-color: #ddd;
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-}
-.arlo_tm_about .experience .wrapper{
-	width: 100%;
-	height: auto;
-	clear: both;
-	float: left;
-	display: flex;
-}
-.arlo_tm_about .experience .left{
-	width: 50%;
-	float: left;
-	padding-right: 50px;
-	margin-bottom: 25px;
-}
-.arlo_tm_about .experience .right{
-	width: 50%;
-	float: left;
-	padding-left: 50px;
-	margin-bottom: 20px;
-}
-.arlo_tm_about .experience .experience_title{
-	width: 100%;
-	height: auto;
-	clear: both;
-	float: left;
-	margin-bottom: 20px;
-}
-.arlo_tm_about .experience .experience_title h3{
-	font-size: 14px;
-	font-weight: 600;
-	color: #000;
-	margin-bottom: 10px;
-}
-.arlo_tm_experience_list{
-	width: 100%;
-	height: auto;
-	clear: both;
-	float: left;
-}
-.arlo_tm_experience_list li{
-	width: 100%;
-	float: left;
-	margin-bottom: 20px;
-}
-.arlo_tm_experience_list li .list_inner{
-	width: 100%;
-	height: auto;
-	clear: both;
-	float: left;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding-bottom: 15px;
-	border-bottom: 1px solid #eee;
-}
-.arlo_tm_experience_list li:last-child{
-	margin-bottom: 0px;
-}
-.arlo_tm_experience_list li:last-child .list_inner{
-	border-bottom: none;
-	padding-bottom: 0px;
-}
-.arlo_tm_experience_list .subject h3{
-	font-size: 15px;
-	font-weight: 600;
-	color: #000;
-	margin-bottom: 3px;
-}
-.arlo_tm_experience_list .subject span{
-	font-size: 13px;
-	color: #868a9b;
-}
-.arlo_tm_experience_list .date span{
-	font-size: 13px;
-	font-weight: 500;
-	color: #000;
 }
 
